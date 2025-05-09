@@ -29,7 +29,13 @@ A estrutura do sistema seguirá o padrão MVC (Model-View-Controller), organizan
 
 ### 2.1. Personas (Semana 01 - opcional)
 
-*Posicione aqui sua(s) Persona(s) em forma de texto markdown com imagens, ou como imagem de template preenchido. Atualize esta seção ao longo do módulo se necessário.*
+A criação de uma persona é um recurso que consiste em modelar o público típico de determinada solução, de modo a facilitar o entendimento do público-alvo de um produto ou serviço. Dessa maneira, para a aplicação WEB Taskline, modelou-se uma persona que tipicamente se envolve com inúmeras atividades, sejam elas acadêmicas, estracurriculares, profissionais ou de lazer e, por esse motivo, não consegue controlar adequadamente as suas tarefas. Além disso, delineou-se uma persona que desejasse meios de se motivar constantemente e de acompanhar sua produtividade. Sendo assim, a figura abaixo representa a persona pensada para o projeto.
+
+<div align="center">
+<sub>Figura - Persona</sub>
+<img src="assets/PERSONA.png" width="100%">
+<sup>Fonte: Material produzido pelo autor (2025)</sup>
+</div>
 
 ### 2.2. User Stories (Semana 01 - opcional)
 
