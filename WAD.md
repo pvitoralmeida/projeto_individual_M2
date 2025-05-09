@@ -47,9 +47,55 @@ A criação de uma persona é um recurso que consiste em modelar o público típ
 
 ### 3.1. Modelagem do banco de dados  (Semana 3)
 
-*Posicione aqui os diagramas de modelos relacionais do seu banco de dados, apresentando todos os esquemas de tabelas e suas relações. Utilize texto para complementar suas explicações, se necessário.*
+#### 3.1.1. Modelagem Relacional
 
-*Posicione também o modelo físico com o Schema do BD (arquivo .sql)*
+<div align="center">
+<sub>Figura - Modelo Relacional</sub>
+<img src="assets/Taskline.png" width="100%">
+<sup>Fonte: Material produzido pelo autor (2025)</sup>
+</div>
+
+#### 3.1.2. Modelo Físico
+
+```sql
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR,
+  email VARCHAR,
+  password varchar,
+  created_at DATE
+);
+
+CREATE TABLE sections (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR,
+  user_id int,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE tasks (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR,
+  description VARCHAR,
+  due_date DATE,
+  due_time TIME,
+  is_completed BOOLEAN,
+  section_id INT,
+  created_at DATE,
+  completed_at DATE,
+  FOREIGN KEY (section_id) REFERENCES sections(id)
+);
+
+CREATE TABLE inspiration_quotes (
+  id SERIAL PRIMARY KEY,
+  content TEXT,
+  user_id INT,
+  created_at DATE
+);
+
+ALTER TABLE inspiration_quotes
+ADD FOREIGN KEY (user_id) REFERENCES users(id)
+```
 
 ### 3.1.1 BD e Models (Semana 5)
 *Descreva aqui os Models implementados no sistema web*
