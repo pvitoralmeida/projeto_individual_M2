@@ -20,13 +20,14 @@ meu-projeto/
 ├── config/                # Arquivos de configuração (ex: conexão com banco)
 │   └── database.js
 ├── controllers/           # Lógica de controle das requisições
-│   └── HomeController.js
+│   └── TaskController.js
 ├── models/                # Definição de modelos de dados (estrutura do banco)
-│   └── User.js
+│   └── tasks.js
 ├── routes/                # Definição das rotas do sistema
 │   └── index.js
-├── services/              # Serviços auxiliares do sistema
-│   └── userService.js
+├── scripts/                # riação ou alteração da estrutura do banco de dados
+│   └── init.sql
+│   └── runSQLScript.js
 ├── assets/                # Arquivos públicos como imagens e fontes
 ├── scripts/               # Arquivos de JavaScript públicos
 ├── styles/                # Arquivos CSS públicos
@@ -60,11 +61,32 @@ npm install
 node server.js
 ```
 
-4. Acesse a aplicação no navegador:
+4. **Acesse a aplicação no navegador:**
 ```
 http://localhost:3000
 ```
 
-> 💡 Obs: ainda não há conexão com banco de dados nesta etapa. O foco está na estrutura do projeto e funcionamento básico do servidor.
+## 👾 Como acessar a API de tasks
+
+1. **Crie um arquivo .env na raiz do projeto baseado no modelo .env.example:**
+```bash
+cp .env.example .env
+```
+2. **Preencha os valores de acordo com seu banco de dados local;**
+
+3. **Conecte-se ao banco de dados:**
+```bash
+npm run init-db
+```
+
+4. **Inicie o servidor**
+```bash
+node server.js
+```
+
+5. **Acesso a API no navegador**:
+```
+http://localhost:3000/api/tasks
+```
 
 ---
