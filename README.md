@@ -66,7 +66,7 @@ node server.js
 http://localhost:3000
 ```
 
-## 👾 Como acessar a API de tasks
+## 👾 Como acessar as APIs (tasks, sections, quotes, users)
 
 1. **Crie um arquivo .env na raiz do projeto baseado no modelo .env.example:**
 ```bash
@@ -86,7 +86,7 @@ node server.js
 
 5. **Acesso a API no navegador**:
 ```
-http://localhost:3000/api/tasks
+http://localhost:3000/api/api_name
 ```
 
 ---

@@ -36,14 +36,14 @@ CREATE TABLE IF NOT EXISTS inspiration_quotes (
   created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 );
 
--- 1. Criar usuário
+-- Criar usuário
 INSERT INTO users (name, email, password)
 VALUES ('João Silva', 'joao@example.com', 'senha_hash_aqui');
 
--- 2. Criar seção vinculada ao usuário criado (supondo que o id do usuário seja 1)
+-- Criar seção vinculada ao usuário criado
 INSERT INTO sections (name, user_id)
 VALUES ('Minha Seção de Teste', 1);
 
--- 3. Criar task vinculada à seção criada (supondo que o id da seção seja 1)
+-- Criar task vinculada à seção criada
 INSERT INTO tasks (title, description, due_date, due_time, section_id)
 VALUES ('Teste de tarefa', 'Descrição de teste', '2025-05-25', '12:00:00', 1);
