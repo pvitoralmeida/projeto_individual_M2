@@ -19,28 +19,45 @@ meu-projeto/
 │
 ├── config/                # Arquivos de configuração (ex: conexão com banco)
 │   └── database.js
+│
 ├── controllers/           # Lógica de controle das requisições
-│   └── TaskController.js
+│   ├── TaskController.js
+│   ├── UserController.js
+│   ├── QuoteController.js
+│   └── SectionController.js
+│
 ├── models/                # Definição de modelos de dados (estrutura do banco)
-│   └── tasks.js
-├── routes/                # Definição das rotas do sistema
+│   ├── tasks.js
+│   ├── users.js
+│   ├── quotes.js
+│   └── sections.js
+│
+├── routes/                # Definição das rotas da aplicação
 │   └── index.js
-├── scripts/                # riação ou alteração da estrutura do banco de dados
-│   └── init.sql
+│
+├── scripts/               # Scripts para criação ou alteração do banco
+│   ├── init.sql
 │   └── runSQLScript.js
+│
+├── services/              # Serviços auxiliares (ex: regras de negócio)
+│   └── userService.js
+│
 ├── assets/                # Arquivos públicos como imagens e fontes
-├── scripts/               # Arquivos de JavaScript públicos
-├── styles/                # Arquivos CSS públicos
-├── tests/                 # Arquivos de testes unitários
+├── public/                # Scripts JS e CSS públicos
+│   ├── scripts/
+│   └── styles/
+│
+├── tests/                 # Testes unitários com Jest
 │   └── example.test.js
+│
 ├── .gitignore             # Arquivo para ignorar arquivos no Git
-├── .env.example           # Arquivo de exemplo para variáveis de ambiente
-├── jest.config.js         # Arquivo de configuração do Jest
-├── package-lock.json      # Gerenciador de dependências do Node.js
-├── package.json           # Gerenciador de dependências do Node.js
-├── readme.md              # Documentação do projeto (Markdown)
-├── server.js              # Arquivo principal que inicializa o servidor
-└── rest.http              # Teste de endpoints (opcional)
+├── .env.example           # Exemplo de variáveis de ambiente
+├── jest.config.js         # Configuração do Jest
+├── package-lock.json      # Gerenciador de dependências (auto)
+├── package.json           # Dependências e scripts do Node.js
+├── readme.md              # Documentação do projeto
+├── rest.http              # Teste manual de endpoints (via VS Code)
+└── server.js              # Arquivo principal do servidor
 ```
 
 ## 🚀 Como Executar o Projeto Localmente
