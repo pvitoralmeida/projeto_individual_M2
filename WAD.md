@@ -102,14 +102,18 @@ ADD FOREIGN KEY (user_id) REFERENCES users(id)
 
 ### 3.2. Arquitetura (Semana 5)
 
-*Posicione aqui o diagrama de arquitetura da sua solução de aplicação web. Atualize sempre que necessário.*
+<div align="center">
+<sub>Figura - Persona</sub>
+<img src="assets/arquitetura_MVC.png" width="100%">
+<sup>Fonte: Material produzido pelo autor (2025)</sup>
+</div>
 
-**Instruções para criação do diagrama de arquitetura**  
-- **Model**: A camada que lida com a lógica de negócios e interage com o banco de dados.
-- **View**: A camada responsável pela interface de usuário.
-- **Controller**: A camada que recebe as requisições, processa as ações e atualiza o modelo e a visualização.
-  
-*Adicione as setas e explicações sobre como os dados fluem entre o Model, Controller e View.*
+O projeto utiliza a arquitetura MVC:
+
+- **Model**: arquivos em `models/`, responsáveis pelo acesso ao banco de dados.
+- **Controller**: arquivos em `controllers/`, recebem as requisições e chamam os models.
+- **Routes**: arquivo `routes/index.js`, define os endpoints e redireciona para os controllers.
+- **View**: ainda não implementada.
 
 ### 3.3. Wireframes (Semana 03 - opcional)
 
@@ -126,7 +130,23 @@ ADD FOREIGN KEY (user_id) REFERENCES users(id)
 
 ### 3.6. WebAPI e endpoints (Semana 05)
 
-*Utilize um link para outra página de documentação contendo a descrição completa de cada endpoint. Ou descreva aqui cada endpoint criado para seu sistema.*  
+#### **/tasks**
+- `POST /tasks`: cria uma nova tarefa.
+- `GET /tasks`: retorna todas as tarefas.
+
+#### **/users**
+- `POST /users`: cria um novo usuário.
+- `GET /users`: retorna todos os usuários.
+
+#### **/quotes**
+- `POST /quotes`: cria uma nova frase inspiradora.
+- `GET /quotes`: retorna todas as frases.
+
+#### **/sections**
+- `POST /sections`: cria uma nova seção.
+- `GET /sections`: retorna todas as seções.
+
+> Endpoints `PUT` e `DELETE` ainda não foram implementados.
 
 ### 3.7 Interface e Navegação (Semana 07)
 
