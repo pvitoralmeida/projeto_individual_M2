@@ -1,23 +1,40 @@
-const users = require('../models/users');
+// controllers/UserController.js
+const bcrypt = require('bcryptjs');
+const usersModel = require('../models/users');
 
-exports.criarUser = async (req, res) => {
+exports.registerForm = (req, res) => {
+  // Se quiser ter uma rota de registro
+  res.render('register', { error: null });
+};
+
+exports.register = async (req, res) => {
   const { name, email, password } = req.body;
-
   try {
-    const user = await users.createUser({ name, email, password });
-    res.status(201).json(user);
+    // Verificar se já existe
+    const existing = await usersModel.getUserByEmail(email);
+    if (existing) {
+      return res.status(400).render('register', { error: 'Email já cadastrado' });
+    }
+    const salt = await bcrypt.genSalt(10);
+    const passwordHash = await bcrypt.hash(password, salt);
+    const newUser = await usersModel.createUser({ name, email, passwordHash });
+
+    // Fazer login automático
+    req.session.userId = newUser.id;
+    req.session.userName = newUser.name;
+    return res.redirect('/menu');
   } catch (err) {
-    console.error('Erro ao criar user:', err);
-    res.status(500).json({ error: 'Erro interno ao criar user' });
+    console.error(err);
+    return res.status(500).render('register', { error: 'Erro interno ao cadastrar' });
   }
 };
 
-exports.listarUsers = async (req, res) => {
+exports.listUsers = async (req, res) => {
   try {
-    const result = await users.getAllUsers();
-    res.status(200).json(result);
+    const users = await usersModel.getAllUsers();
+    return res.json(users);
   } catch (err) {
-    console.error('Erro ao listar users:', err);
-    res.status(500).json({ error: 'Erro interno ao listar usuários' });
+    console.error(err);
+    return res.status(500).json({ error: 'Erro ao listar usuários' });
   }
 };

@@ -11,10 +11,14 @@
     "init-db": "node scripts/runSQLScript.js"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-pg-simple": "^7.0.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.10",
     "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.0",
     "pg": "^8.16.0"
   },
   "devDependencies": {

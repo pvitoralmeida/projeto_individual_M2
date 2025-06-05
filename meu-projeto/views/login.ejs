@@ -1,0 +1,25 @@
+<%- include('partials/header', { userName: null }) %>
+
+<main class="max-w-md mx-auto bg-white p-8 rounded shadow-md mt-12">
+  <h1 class="text-2xl font-bold mb-6 text-center">Faça login</h1>
+
+  <% if (error) { %>
+    <p class="text-red-500 text-center mb-4"><%= error %></p>
+  <% } %>
+
+  <form action="/login" method="POST" class="space-y-4">
+    <div>
+      <label>Email</label>
+      <input type="email" name="email" required class="w-full p-2 border rounded" />
+    </div>
+    <div>
+      <label>Senha</label>
+      <input type="password" name="password" required class="w-full p-2 border rounded" />
+    </div>
+    <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+      Entrar
+    </button>
+  </form>
+</main>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,12 @@
+<!-- views/partials/header.ejs -->
+<header class="bg-white shadow-sm py-4 px-6 flex justify-between items-center">
+  <div>
+    <a href="/menu" class="font-semibold text-lg hover:underline">Taskline</a>
+  </div>
+  <div>
+    <% if (typeof userName !== 'undefined') { %>
+      <span class="mr-4">Olá, <%= userName %></span>
+      <a href="/logout" class="text-red-500 hover:underline">Sair</a>
+    <% } %>
+  </div>
+</header>

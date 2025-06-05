@@ -1,4 +1,4 @@
--- Tabela de usuários
+-- Users
 CREATE TABLE IF NOT EXISTS users (
   id SERIAL PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS users (
   created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 );
 
--- Tabela de seções
+-- Sections
 CREATE TABLE IF NOT EXISTS sections (
   id SERIAL PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS sections (
   created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 );
 
--- Tabela de tarefas
+-- Tasks
 CREATE TABLE IF NOT EXISTS tasks (
   id SERIAL PRIMARY KEY,
   title VARCHAR(100) NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS tasks (
   completed_at TIMESTAMPTZ
 );
 
--- Tabela de frases inspiradoras
+-- Quotes
 CREATE TABLE IF NOT EXISTS inspiration_quotes (
   id SERIAL PRIMARY KEY,
   content TEXT NOT NULL,
@@ -36,14 +36,14 @@ CREATE TABLE IF NOT EXISTS inspiration_quotes (
   created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 );
 
--- Criar usuário
-INSERT INTO users (name, email, password)
-VALUES ('João Silva', 'joao@example.com', 'senha_hash_aqui');
+-- Em SQL: (você pode rodar via psql ou script)
+CREATE TABLE IF NOT EXISTS "user_sessions" (
+  "sid" varchar NOT NULL COLLATE "default",
+  "sess" json NOT NULL,
+  "expire" timestamp(6) NOT NULL
+)
+WITH (OIDS=FALSE);
 
--- Criar seção vinculada ao usuário criado
-INSERT INTO sections (name, user_id)
-VALUES ('Minha Seção de Teste', 1);
+ALTER TABLE "user_sessions" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid");
 
--- Criar task vinculada à seção criada
-INSERT INTO tasks (title, description, due_date, due_time, section_id)
-VALUES ('Teste de tarefa', 'Descrição de teste', '2025-05-25', '12:00:00', 1);
+CREATE INDEX "IDX_session_expire" ON "user_sessions" ("expire");
