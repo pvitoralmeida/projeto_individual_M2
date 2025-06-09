@@ -19,7 +19,6 @@ router.use(ensureAuth);
 
 // Menu (dashboard) — protegido
 router.get("/menu", ensureAuth, (req, res) => {
-  // Passamos userName para o header
   res.render("menu", { userName: req.session.user.name });
 });
 
@@ -30,12 +29,12 @@ router.get("/tasks/create", async (req, res) => {
   try {
     const userId = req.session.user.id;
     const userName = req.session.user.name;
-    const sections = await SectionsModel.getAllSectionsByUser(userId); // ou SectionModel.getSectionsByUser(userId)
+    const sections = await SectionsModel.getAllSectionsByUser(userId);
 
     res.render("create-task", {
       userName,
       sections,
-      error: null, // garante que a variável exista na view
+      error: null,
     });
   } catch (err) {
     console.error(err);

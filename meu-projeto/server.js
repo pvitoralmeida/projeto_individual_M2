@@ -8,7 +8,6 @@ const routesIndex = require('./routes/index');
 
 const app = express();
 const pool = new Pool({
-  // defina suas variáveis de conexão: USER, PASSWORD, HOST, PORT, DATABASE
   connectionString: process.env.DATABASE_URL || "postgres://<usuário>:<senha>@localhost:5432/<database>"
 });
 
@@ -32,7 +31,7 @@ app.use(session({
 app.set('pool', pool);
 
 // --- Rotas
-app.use('/', routesIndex); // endpoints JSON para criação/edição/exclusão/listagem
+app.use('/', routesIndex);
 
 // --- Iniciar servidor
 const PORT = process.env.PORT || 3000;

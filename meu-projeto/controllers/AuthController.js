@@ -7,7 +7,7 @@ exports.login = (req, res) => {
 
   // Simples validação (exemplo fixo)
   if (email === 'admin@email.com' && password === '1234') {
-    req.session.user = { id: 1, name: 'Admin' }; // ← ADICIONE O ID!
+    req.session.user = { id: 1, name: 'Admin' };
     res.redirect('/menu');
   } else {
     res.render('login', { error: 'Email ou senha incorretos', userName: null });
@@ -19,7 +19,6 @@ exports.logout = (req, res) => {
   req.session.destroy(() => res.redirect('/login'));
 };
 
-// ← Acrescente este middleware:
 exports.ensureAuth = (req, res, next) => {
   if (req.session.user) {
     // Se o usuário estiver logado, deixa prosseguir
