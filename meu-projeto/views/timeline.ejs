@@ -1,67 +1,53 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <title>Taskline - Linha do Tempo</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <title>Document</title>
   </head>
-  <body class="min-h-screen bg-gray-100">
-    <%- include('partials/header', { userName }) %>
+  <body>
+    <%- include('partials/header') %>
 
-    <main class="max-w-4xl mx-auto p-6">
-      <h1 class="text-2xl font-bold text-center mb-6">Linha do Tempo</h1>
-      <div id="timeline-list" class="space-y-4"></div>
-    </main>
+    <% if (tasks.length === 0) { %>
+    <p>Nenhuma tarefa encontrada.</p>
+    <% } else { %>
+      <% // Agrupa tarefas por data %> 
+      <% let currentDate = null; %>
 
-    <%- include('partials/footer') %>
+    <div class="timeline-container">
+      <% tasks.forEach(task => { %> <% if (task.due_date !== currentDate) { currentDate = task.due_date; %>
+      <h2><%= new Date(currentDate).toLocaleDateString('pt-BR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) %></h2>
+      <% } %>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const timelineList = document.getElementById('timeline-list');
+      <div class="task-item <%= task.is_completed ? 'completed' : '' %>">
+        <strong><%= task.title %></strong>
+        <small>(Seção: <%= task.section_name %>)</small><br />
+        <small>Entrega: <%= task.due_time ? task.due_time.slice(0,5) : 'Sem horário' %></small>
+        <p><%= task.description %></p>
+      </div>
+      <% }) %>
+    </div>
+    <% } %> <%- include('partials/footer') %>
 
-        function loadCompleted() {
-          fetch('/api/tasks/completed')
-            .then(res => res.json())
-            .then(tasks => {
-              timelineList.innerHTML = '';
-              if (tasks.length === 0) {
-                timelineList.innerHTML = '<p class="text-center text-gray-500">Nenhuma tarefa concluída ainda.</p>';
-                return;
-              }
-              tasks.forEach(t => {
-                const div = document.createElement('div');
-                div.className = 'bg-white p-4 rounded shadow flex justify-between items-center';
-                // Formatando a data/hora de completed_at
-                const dt = new Date(t.completed_at);
-                const dataFormatada = dt.toLocaleDateString('pt-BR');
-                const horaFormatada = dt.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
-                div.innerHTML = `
-                  <div>
-                    <h3 class="font-medium">${t.title}</h3>
-                    <small class="text-gray-400 text-xs">${dataFormatada} ${horaFormatada}</small>
-                    <p class="text-gray-600 text-sm mt-1">${t.section_name || 'Sem seção'}</p>
-                  </div>
-                  <button data-id="${t.id}" class="delete-comp text-red-500 hover:underline text-sm">Excluir</button>
-                `;
-                timelineList.appendChild(div);
-              });
-              attachDeleteListeners();
-            });
-        }
-
-        function attachDeleteListeners() {
-          document.querySelectorAll('.delete-comp').forEach(btn => {
-            btn.onclick = () => {
-              const id = btn.dataset.id;
-              fetch(`/api/tasks/${id}`, { method: 'DELETE' })
-                .then(_ => loadCompleted());
-            };
-          });
-        }
-
-        loadCompleted();
-      });
-    </script>
+    <style>
+      .timeline-container {
+        max-width: 600px;
+        margin: auto;
+      }
+      .task-item {
+        padding: 8px 12px;
+        border-left: 4px solid #3498db;
+        margin-bottom: 12px;
+        background: #f0f8ff;
+        border-radius: 4px;
+      }
+      .task-item.completed {
+        opacity: 0.6;
+        text-decoration: line-through;
+        border-color: #2ecc71;
+        background: #e6f4ea;
+      }
+    </style>
   </body>
 </html>

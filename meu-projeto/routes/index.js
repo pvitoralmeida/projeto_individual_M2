@@ -1,25 +1,62 @@
-// routes/index.js
-const express = require('express');
+// routes
+const express = require("express");
 const router = express.Router();
-const TaskController = require('../controllers/TaskController');
-const UserController = require('../controllers/UserController');
-const QuoteController = require('../controllers/QuoteController');
-const SectionController = require('../controllers/SectionController');
+const { ensureAuth } = require("../controllers/AuthController");
 
-// Rotas para o CRUD de tarefas
-router.post('/tasks', TaskController.criarTask);
-router.get('/tasks', TaskController.listarTasks);
+const AuthController = require("../controllers/AuthController");
+const SectionController = require("../controllers/SectionController");
+const TaskController = require("../controllers/TaskController");
+const UserController = require("../controllers/UserController");
+const SectionsModel = require("../models/sections");
 
-// Rotas para o CRUD de usuários
-router.post('/users', UserController.criarUser);
-router.get('/users', UserController.listarUsers);
+// Login
+router.get("/login", AuthController.showLogin);
+router.post("/login", AuthController.login);
+router.get("/logout", AuthController.logout);
 
-// Rotas para o CRUD de frases inspiradoras
-router.post('/quotes', QuoteController.criarQuote);
-router.get('/quotes', QuoteController.listarQuotes);
+// Observação: todas rotas aqui já pressupõem usuário logado
+router.use(ensureAuth);
 
-// Rotas para o CRUD de seções
-router.post('/sections', SectionController.criarSection);
-router.get('/sections', SectionController.listarSections);
+// Menu (dashboard) — protegido
+router.get("/menu", ensureAuth, (req, res) => {
+  // Passamos userName para o header
+  res.render("menu", { userName: req.session.user.name });
+});
+
+router.get('/tasks', TaskController.showTasksPage);
+
+// Formulário para criar tarefa
+router.get("/tasks/create", async (req, res) => {
+  try {
+    const userId = req.session.user.id;
+    const userName = req.session.user.name;
+    const sections = await SectionsModel.getAllSectionsByUser(userId); // ou SectionModel.getSectionsByUser(userId)
+
+    res.render("create-task", {
+      userName,
+      sections,
+      error: null, // garante que a variável exista na view
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Erro ao carregar formulário de criação de tarefa.");
+  }
+});
+
+// --- Seções ---
+router.get("/sections", SectionController.listSections);
+router.post("/sections", SectionController.createSection);
+router.put("/sections/:id", SectionController.updateSection);
+router.delete("/sections/:id", SectionController.deleteSection);
+
+// --- Tarefas ---
+router.get("/tasks", TaskController.listTasks);
+router.get("/tasks/completed", TaskController.listCompleted);
+router.post("/tasks", TaskController.createTask);
+router.put("/tasks/:id", TaskController.updateTask);
+router.delete("/tasks/:id", TaskController.deleteTask);
+
+// --- Timeline ---
+router.get('/timeline', TaskController.timelineView);
 
 module.exports = router;

@@ -1,27 +1,30 @@
 // controllers/SectionController.js
-const sectionsModel = require('../models/sections');
-const tasksModel = require('../models/tasks');
+const sectionsModel = require("../models/sections");
 
 exports.listSections = async (req, res) => {
-  const userId = req.session.userId;
+  const userId = req.session.user.id;
+  const userName = req.session.user.name;
+
   try {
     const sections = await sectionsModel.getAllSectionsByUser(userId);
-    return res.json(sections);
+    console.log("User ID na sessão:", userId);
+    console.log(sections)
+    res.render("sections", { sections, userName });
   } catch (err) {
     console.error(err);
-    return res.status(500).json({ error: 'Erro ao buscar seções' });
+    res.status(500).send("Erro ao buscar seções");
   }
 };
 
 exports.createSection = async (req, res) => {
   const { name } = req.body;
-  const userId = req.session.userId;
+  const userId = req.session.user.id; 
   try {
     const section = await sectionsModel.createSection({ name, user_id: userId });
     return res.status(201).json(section);
   } catch (err) {
     console.error(err);
-    return res.status(500).json({ error: 'Erro ao criar seção' });
+    return res.status(500).json({ error: "Erro ao criar seção" });
   }
 };
 
@@ -33,7 +36,7 @@ exports.updateSection = async (req, res) => {
     return res.json(updated);
   } catch (err) {
     console.error(err);
-    return res.status(500).json({ error: 'Erro ao atualizar seção' });
+    return res.status(500).json({ error: "Erro ao atualizar seção" });
   }
 };
 
@@ -44,6 +47,6 @@ exports.deleteSection = async (req, res) => {
     return res.status(204).send();
   } catch (err) {
     console.error(err);
-    return res.status(500).json({ error: 'Erro ao deletar seção' });
+    return res.status(500).json({ error: "Erro ao deletar seção" });
   }
 };

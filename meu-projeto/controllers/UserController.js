@@ -20,7 +20,7 @@ exports.register = async (req, res) => {
     const newUser = await usersModel.createUser({ name, email, passwordHash });
 
     // Fazer login automático
-    req.session.userId = newUser.id;
+    req.session.user.id = newUser.id;
     req.session.userName = newUser.name;
     return res.redirect('/menu');
   } catch (err) {

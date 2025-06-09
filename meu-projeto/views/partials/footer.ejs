@@ -1,31 +1,8 @@
-<!-- views/partials/footer.ejs -->
 <footer class="fixed bottom-0 left-0 w-full bg-white border-t p-4">
   <div class="max-w-4xl mx-auto">
-    <h2 class="font-medium mb-2">Suas Quotes</h2>
-    <div id="quotes-container" class="flex space-x-4 overflow-x-auto">
-      <!-- As quotes serão inseridas aqui via JavaScript -->
+    <h2 class="font-medium mb-2">Frase Inspiradora</h2>
+    <div class="text-gray-800 text-sm italic">
+      "A persistência é o caminho do êxito." — Charles Chaplin
     </div>
   </div>
 </footer>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    if (window.location.pathname !== '/login') {
-      fetch('/api/quotes')
-        .then(res => res.json())
-        .then(quotes => {
-          const container = document.getElementById('quotes-container');
-          container.innerHTML = '';
-          quotes.forEach(q => {
-            const chip = document.createElement('div');
-            chip.className = 'bg-yellow-100 text-gray-800 text-sm px-3 py-2 rounded shadow';
-            chip.innerText = q.content.length > 30 
-              ? q.content.slice(0, 30) + '...' 
-              : q.content;
-            container.appendChild(chip);
-          });
-        })
-        .catch(err => console.error('Erro ao carregar quotes:', err));
-    }
-  });
-</script>

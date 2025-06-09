@@ -7,12 +7,13 @@ exports.login = (req, res) => {
 
   // Simples validação (exemplo fixo)
   if (email === 'admin@email.com' && password === '1234') {
-    req.session.user = { name: 'Admin' };
+    req.session.user = { id: 1, name: 'Admin' }; // ← ADICIONE O ID!
     res.redirect('/menu');
   } else {
     res.render('login', { error: 'Email ou senha incorretos', userName: null });
   }
 };
+
 
 exports.logout = (req, res) => {
   req.session.destroy(() => res.redirect('/login'));

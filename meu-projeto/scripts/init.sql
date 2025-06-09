@@ -28,14 +28,6 @@ CREATE TABLE IF NOT EXISTS tasks (
   completed_at TIMESTAMPTZ
 );
 
--- Quotes
-CREATE TABLE IF NOT EXISTS inspiration_quotes (
-  id SERIAL PRIMARY KEY,
-  content TEXT NOT NULL,
-  user_id INT REFERENCES users(id) ON DELETE CASCADE,
-  created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
-);
-
 -- Em SQL: (você pode rodar via psql ou script)
 CREATE TABLE IF NOT EXISTS "user_sessions" (
   "sid" varchar NOT NULL COLLATE "default",
@@ -47,3 +39,5 @@ WITH (OIDS=FALSE);
 ALTER TABLE "user_sessions" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid");
 
 CREATE INDEX "IDX_session_expire" ON "user_sessions" ("expire");
+
+INSERT INTO users (id, name, email, password) VALUES (1, 'Exemplo', 'exemplo@email.com', 'hash');

@@ -4,8 +4,7 @@ const path = require('path');
 const session = require('express-session');
 const pgSession = require('connect-pg-simple')(session);
 const { Pool } = require('pg');
-const routesViews = require('./routes/views');
-const routesApi = require('./routes/api');
+const routesIndex = require('./routes/index');
 
 const app = express();
 const pool = new Pool({
@@ -33,8 +32,7 @@ app.use(session({
 app.set('pool', pool);
 
 // --- Rotas
-app.use('/', routesViews);  // páginas EJS (login, menu, sections, timeline)
-app.use('/api', routesApi); // endpoints JSON para criação/edição/exclusão/listagem
+app.use('/', routesIndex); // endpoints JSON para criação/edição/exclusão/listagem
 
 // --- Iniciar servidor
 const PORT = process.env.PORT || 3000;

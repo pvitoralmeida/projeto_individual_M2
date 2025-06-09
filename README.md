@@ -23,13 +23,11 @@ meu-projeto/
 ├── controllers/           # Lógica de controle das requisições
 │   ├── TaskController.js
 │   ├── UserController.js
-│   ├── QuoteController.js
 │   └── SectionController.js
 │
 ├── models/                # Definição de modelos de dados (estrutura do banco)
 │   ├── tasks.js
 │   ├── users.js
-│   ├── quotes.js
 │   └── sections.js
 │
 ├── routes/                # Definição das rotas da aplicação
