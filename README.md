@@ -99,7 +99,7 @@ npm run init-db
 node server.js
 ```
 
-5. **Acesso a API no navegador**:
+5. **Acesse a API no navegador**:
 ```
 http://localhost:3000/api/api_name
 ```
