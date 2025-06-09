@@ -47,6 +47,16 @@ meu-projeto/
 │
 ├── tests/                 # Testes unitários com Jest
 │   └── example.test.js
+├── views/                 # Testes unitários com Jest
+│   ├── partials/
+│       ├── header.ejs
+│       └── footer.ejs
+│   ├── create-task.ejs         # Configuração do Jest
+│   ├── login.ejs      # Gerenciador de dependências (auto)
+│   ├── menu.ejs           # Dependências e scripts do Node.js
+│   ├── sections.ejs              # Documentação do projeto
+│   ├── tasks.ejs             # Teste manual de endpoints (via VS Code)
+│   └── timeline.ejs   
 │
 ├── .gitignore             # Arquivo para ignorar arquivos no Git
 ├── .env.example           # Exemplo de variáveis de ambiente
@@ -78,7 +88,7 @@ node server.js
 
 4. **Acesse a aplicação no navegador:**
 ```
-http://localhost:3000
+http://localhost:3000/login
 ```
 
 ## 👾 Como acessar as APIs (tasks, sections, quotes, users)
@@ -101,7 +111,7 @@ node server.js
 
 5. **Acesse a API no navegador**:
 ```
-http://localhost:3000/api/api_name
+http://localhost:3000/api_name
 ```
 
 ---
