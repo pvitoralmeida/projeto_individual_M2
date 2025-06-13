@@ -150,7 +150,54 @@ O projeto utiliza a arquitetura MVC:
 
 ### 3.7 Interface e Navegação (Semana 07)
 
-*Descreva e ilustre aqui o desenvolvimento do frontend do sistema web, explicando brevemente o que foi entregue em termos de código e sistema. Utilize prints de tela para ilustrar.*
+Referente ao frontend da aplicação WEB, ao longo da Semana 7, foi desenvolvido uma página de login estático, um menu que centraliza os redirecionamentos para as demais funçoes, telas para criar tarefas e seções, e um visualização em formato de linha do tempo para as tarefas.
+
+#### Login
+A tela de login pede email e senha. Contudo, no período da sétima semana de desenvolvimento, apenas é possível acessar o site com o seguinte login estático: email = admin@email.com e senha = 1234. Futuramente, pretende-se desenvolver a funcionalidade da cadastro e login completa e funcional.
+
+<p align = "center">Figura: Tela de Login </p>
+
+<p align="center"> <img src = "https://github.com/user-attachments/assets/84e1a59a-6e47-416e-86a8-c389b4e9c6fc" align = "center"> </p>
+
+<p align = "center">Fonte: Material produzido pelo autor (2025).</p> <br>
+
+
+#### Menu
+Na página de menu você encontra botões para as demais telas, bem como uma frase inspiradora no rodapé que está também nas outras telas.
+
+<p align = "center">Figura: Tela de Menu </p>
+
+<p align="center"> <img src = "https://github.com/user-attachments/assets/b0de58ae-69b1-47aa-a67a-4e9b49f5a6c6" align = "center"> </p>
+
+
+<p align = "center">Fonte: Material produzido pelo autor (2025).</p> <br>
+
+#### Seções
+Na tela de seções você consegue criar e editar seções.
+
+<p align = "center">Figura: Tela de Seções</p>
+
+<p align="center"> <img src = "https://github.com/user-attachments/assets/29cdda58-fe12-4f61-9fd2-1582e54d6860" align = "center"> </p>
+
+<p align = "center">Fonte: Material produzido pelo autor (2025).</p> <br>
+
+#### Tarefas
+Na tela de tarefas você consegue ver suas tarefas e criar novas.
+
+<p align = "center">Figura: Tela de Tarefas </p>
+
+<p align="center"> <img src = "https://github.com/user-attachments/assets/573ff7dc-e525-44eb-a5f3-309c8648d7b9" align = "center"> </p>
+
+<p align = "center">Fonte: Material produzido pelo autor (2025).</p> <br>
+
+#### Timeline
+Na tela de timeline você consegue visualizar suas tarefas em ordem cronológica.
+
+<p align = "center">Figura: Tela de Timeline </p>
+
+<p align="center"> <img src = "https://github.com/user-attachments/assets/74ebabbd-96b1-4cfa-b7b3-007df657fdf7"> </p>
+
+<p align = "center">Fonte: Material produzido pelo autor (2025).</p> <br>
 
 ---
 
