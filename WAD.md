@@ -19,7 +19,7 @@
 
 O sistema a ser desenvolvido é uma plataforma de gestão de atividades para pessoas com múltiplas tarefas, focada em organizar, monitorar e motivar os usuários a gerenciar suas tarefas acadêmicas e profissionais. A aplicação permitirá que os usuários criem diferentes seções para suas atividades, segmentando-as de acordo com suas origens e prioridades. Além disso, contará com uma linha do tempo para visualizar as tarefas entregues e acompanhar a produtividade ao longo do tempo.
 
-A plataforma também incluirá uma funcionalidade para adicionar frases inspiradoras, proporcionando uma fonte de motivação para os usuários, ajudando-os a se manterem focados e engajados na conclusão de suas pendências.
+A plataforma também incluirá uma funcionalidade para mostrar frases inspiradoras, proporcionando uma fonte de motivação para os usuários, ajudando-os a se manterem focados e engajados na conclusão de suas pendências.
 
 A estrutura do sistema seguirá o padrão MVC (Model-View-Controller), organizando de forma clara a lógica de negócios, a interface com o usuário e o gerenciamento dos dados. O sistema terá uma interface simples e intuitiva, permitindo que os usuários naveguem facilmente entre as seções de atividades, visualizem o progresso de suas tarefas e recebam inspiração de maneira rápida e eficiente.
 
@@ -36,14 +36,6 @@ A criação de uma persona é um recurso que consiste em modelar o público típ
 <img src="assets/PERSONA.png" width="100%">
 <sup>Fonte: Material produzido pelo autor (2025)</sup>
 </div>
-
-### 2.2. User Stories (Semana 01 - opcional)
-
-*Posicione aqui a lista de User Stories levantadas para o projeto. Siga o template de User Stories e utilize a referência USXX para numeração (US01, US02, US03, ...). Indique todas as User Stories mapeadas, mesmo aquelas que não forem implementadas ao longo do projeto. Não se esqueça de explicar o INVEST de 1 User Storie prioritária.*
-
----
-
-## <a name="c3"></a>3. Projeto da Aplicação Web
 
 ### 3.1. Modelagem do banco de dados  (Semana 3)
 
@@ -113,22 +105,9 @@ O projeto utiliza a arquitetura MVC:
 - **Model**: arquivos em `models/`, responsáveis pelo acesso ao banco de dados.
 - **Controller**: arquivos em `controllers/`, recebem as requisições e chamam os models.
 - **Routes**: arquivo `routes/index.js`, define os endpoints e redireciona para os controllers.
-- **View**: ainda não implementada.
+- **View**: arquivos em `views/`, montam a visualização da plataforma com HTMLK e CSS.
 
-### 3.3. Wireframes (Semana 03 - opcional)
-
-*Posicione aqui as imagens do wireframe construído para sua solução e, opcionalmente, o link para acesso (mantenha o link sempre público para visualização).*
-
-### 3.4. Guia de estilos (Semana 05 - opcional)
-
-*Descreva aqui orientações gerais para o leitor sobre como utilizar os componentes do guia de estilos de sua solução.*
-
-
-### 3.5. Protótipo de alta fidelidade (Semana 05 - opcional)
-
-*Posicione aqui algumas imagens demonstrativas de seu protótipo de alta fidelidade e o link para acesso ao protótipo completo (mantenha o link sempre público para visualização).*
-
-### 3.6. WebAPI e endpoints (Semana 05)
+### 3.3. WebAPI e endpoints (Semana 05)
 
 #### **/tasks**
 - `POST /tasks`: cria uma nova tarefa.
