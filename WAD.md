@@ -189,7 +189,7 @@ Na tela de timeline você consegue visualizar suas tarefas em ordem cronológica
 
 ### 4.2 Conclusões e Trabalhos Futuros (Semana 8)
 
-A plataforma Taskline se destaca por sua interface simples e intuitiva, que torna prático o gerenciamento e visualização das tarefas do dia a dia. Por outro lado, a plataforma poderia ofercer opções simples de personalização e uma estética mais condizente com a proposta apresentada. Sendo assim, possíveis melhorias para o futuro seriam definir uma identidade visual coesa, como formatar a visualização da tela de Timeline para uma linha do tempo de verdade, assim como permitir que o usuário personalizasse as frases motivacionais que aparecem no footer.
+A plataforma Taskline se destaca por sua interface simples e intuitiva, que torna prático o gerenciamento e visualização das tarefas do dia a dia. Por outro lado, a plataforma poderia ofercer opções simples de personalização e uma estética mais condizente com a proposta apresentada. Sendo assim, possíveis melhorias para o futuro seriam definir uma identidade visual coesa, como formatar a visualização da tela de Timeline para uma linha do tempo de verdade, assim como permitir que o usuário personalizasse as frases motivacionais que aparecem no footer. Além disso, o site ainda não conta com um sistema de registro, que deve ser criado no futuro.
 
 ## <a name="c5"></a>5. Referências
 
