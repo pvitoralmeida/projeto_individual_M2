@@ -37,6 +37,9 @@ A criação de uma persona é um recurso que consiste em modelar o público típ
 <sup>Fonte: Material produzido pelo autor (2025)</sup>
 </div>
 
+
+## <a name="c3"></a>3. Projeto da Aplicação Web
+
 ### 3.1. Modelagem do banco de dados  (Semana 3)
 
 #### 3.1.1. Modelagem Relacional
