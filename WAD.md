@@ -109,23 +109,31 @@ O projeto utiliza a arquitetura MVC:
 
 ### 3.3. WebAPI e endpoints (Semana 05)
 
+### 3.3. WebAPI e Endpoints (Semana 05)
+
 #### **/tasks**
+- `GET /tasks`: retorna todas as tarefas do usuário logado.
+- `GET /tasks/completed`: retorna apenas as tarefas concluídas.
 - `POST /tasks`: cria uma nova tarefa.
-- `GET /tasks`: retorna todas as tarefas.
-
-#### **/users**
-- `POST /users`: cria um novo usuário.
-- `GET /users`: retorna todos os usuários.
-
-#### **/quotes**
-- `POST /quotes`: cria uma nova frase inspiradora.
-- `GET /quotes`: retorna todas as frases.
+- `PUT /tasks/:id`: atualiza uma tarefa existente.
+- `DELETE /tasks/:id`: remove uma tarefa existente.
 
 #### **/sections**
+- `GET /sections`: retorna todas as seções do usuário logado.
 - `POST /sections`: cria uma nova seção.
-- `GET /sections`: retorna todas as seções.
+- `PUT /sections/:id`: atualiza uma seção existente.
+- `DELETE /sections/:id`: remove uma seção existente.
 
-> Endpoints `PUT` e `DELETE` ainda não foram implementados.
+#### **/timeline**
+- `GET /timeline`: retorna a visualização da linha do tempo das tarefas.
+
+#### **/auth**
+- `GET /login`: renderiza a página de login.
+- `POST /login`: realiza o login do usuário.
+- `GET /logout`: realiza o logout do usuário.
+
+#### **/menu**
+- `GET /menu`: renderiza o menu principal com nome do usuário logado.
 
 ### 3.7 Interface e Navegação (Semana 07)
 
