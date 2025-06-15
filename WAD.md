@@ -15,7 +15,7 @@
 
 <br>
 
-## <a name="c1"></a>1. Introdução (Semana 01)
+## <a name="c1"></a>1. Introdução
 
 O sistema a ser desenvolvido é uma plataforma de gestão de atividades para pessoas com múltiplas tarefas, focada em organizar, monitorar e motivar os usuários a gerenciar suas tarefas acadêmicas e profissionais. A aplicação permitirá que os usuários criem diferentes seções para suas atividades, segmentando-as de acordo com suas origens e prioridades. Além disso, contará com uma linha do tempo para visualizar as tarefas entregues e acompanhar a produtividade ao longo do tempo.
 
@@ -27,7 +27,7 @@ A estrutura do sistema seguirá o padrão MVC (Model-View-Controller), organizan
 
 ## <a name="c2"></a>2. Visão Geral da Aplicação Web
 
-### 2.1. Personas (Semana 01 - opcional)
+### 2.1. Personas
 
 A criação de uma persona é um recurso que consiste em modelar o público típico de determinada solução, de modo a facilitar o entendimento do público-alvo de um produto ou serviço. Dessa maneira, para a aplicação WEB Taskline, modelou-se uma persona que tipicamente se envolve com inúmeras atividades, sejam elas acadêmicas, estracurriculares, profissionais ou de lazer e, por esse motivo, não consegue controlar adequadamente as suas tarefas. Além disso, delineou-se uma persona que desejasse meios de se motivar constantemente e de acompanhar sua produtividade. Sendo assim, a figura abaixo representa a persona pensada para o projeto.
 
@@ -40,7 +40,7 @@ A criação de uma persona é um recurso que consiste em modelar o público típ
 
 ## <a name="c3"></a>3. Projeto da Aplicação Web
 
-### 3.1. Modelagem do banco de dados  (Semana 3)
+### 3.1. Modelagem do banco de dados 
 
 #### 3.1.1. Modelagem Relacional
 
@@ -92,10 +92,7 @@ ALTER TABLE inspiration_quotes
 ADD FOREIGN KEY (user_id) REFERENCES users(id)
 ```
 
-### 3.1.1 BD e Models (Semana 5)
-*Descreva aqui os Models implementados no sistema web*
-
-### 3.2. Arquitetura (Semana 5)
+### 3.2. Arquitetura 
 
 <div align="center">
 <sub>Figura - Persona</sub>
@@ -110,9 +107,7 @@ O projeto utiliza a arquitetura MVC:
 - **Routes**: arquivo `routes/index.js`, define os endpoints e redireciona para os controllers.
 - **View**: arquivos em `views/`, montam a visualização da plataforma com HTMLK e CSS.
 
-### 3.3. WebAPI e endpoints (Semana 05)
-
-### 3.3. WebAPI e Endpoints (Semana 05)
+### 3.3. WebAPI e endpoints
 
 #### **/tasks**
 - `GET /tasks`: retorna todas as tarefas do usuário logado.
@@ -138,12 +133,12 @@ O projeto utiliza a arquitetura MVC:
 #### **/menu**
 - `GET /menu`: renderiza o menu principal com nome do usuário logado.
 
-### 3.7 Interface e Navegação (Semana 07)
+### 3.4 Interface e Navegação 
 
-Referente ao frontend da aplicação WEB, ao longo da Semana 7, foi desenvolvido uma página de login estático, um menu que centraliza os redirecionamentos para as demais funçoes, telas para criar tarefas e seções, e um visualização em formato de linha do tempo para as tarefas.
+Referente ao frontend da aplicação WEB, foi desenvolvido uma página de login estático, um menu que centraliza os redirecionamentos para as demais funçoes, telas para criar tarefas e seções, e um visualização em formato de linha do tempo para as tarefas.
 
 #### Login
-A tela de login pede email e senha. Contudo, no período da sétima semana de desenvolvimento, apenas é possível acessar o site com o seguinte login estático: email = admin@email.com e senha = 1234. Futuramente, pretende-se desenvolver a funcionalidade da cadastro e login completa e funcional.
+A tela de login pede email e senha. Contudo, atualmente apenas é possível acessar o site com o seguinte login estático: email = admin@email.com e senha = 1234. Futuramente, pretende-se desenvolver a funcionalidade da cadastro e login completa e funcional.
 
 <p align = "center">Figura: Tela de Login </p>
 
@@ -191,20 +186,16 @@ Na tela de timeline você consegue visualizar suas tarefas em ordem cronológica
 
 ---
 
-## <a name="c4"></a>4. Desenvolvimento da Aplicação Web (Semana 8)
+## <a name="c4"></a>4. Desenvolvimento da Aplicação Web 
 
-### 4.1 Demonstração do Sistema Web (Semana 8)
+### 4.1 Demonstração do Sistema Web 
 
 *VIDEO: Insira o link do vídeo demonstrativo nesta seção*
 *Descreva e ilustre aqui o desenvolvimento do sistema web completo, explicando brevemente o que foi entregue em termos de código e sistema. Utilize prints de tela para ilustrar.*
 
-### 4.2 Conclusões e Trabalhos Futuros (Semana 8)
+### 4.2 Conclusões e Trabalhos Futuros
 
 A plataforma Taskline se destaca por sua interface simples e intuitiva, que torna prático o gerenciamento e visualização das tarefas do dia a dia. Por outro lado, a plataforma poderia ofercer opções simples de personalização e uma estética mais condizente com a proposta apresentada. Sendo assim, possíveis melhorias para o futuro seriam definir uma identidade visual coesa, como formatar a visualização da tela de Timeline para uma linha do tempo de verdade, assim como permitir que o usuário personalizasse as frases motivacionais que aparecem no footer. Além disso, o site ainda não conta com um sistema de registro, que deve ser criado no futuro.
-
-## <a name="c5"></a>5. Referências
-
-_Incluir as principais referências de seu projeto, para que o leitor possa consultar caso ele se interessar em aprofundar._<br>
 
 ---
 ---
