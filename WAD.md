@@ -15,11 +15,11 @@
 
 <br>
 
-## <a name="c1"></a>1. Introdução (Semana 01)
+## <a name="c1"></a>1. Introdução
 
 O sistema a ser desenvolvido é uma plataforma de gestão de atividades para pessoas com múltiplas tarefas, focada em organizar, monitorar e motivar os usuários a gerenciar suas tarefas acadêmicas e profissionais. A aplicação permitirá que os usuários criem diferentes seções para suas atividades, segmentando-as de acordo com suas origens e prioridades. Além disso, contará com uma linha do tempo para visualizar as tarefas entregues e acompanhar a produtividade ao longo do tempo.
 
-A plataforma também incluirá uma funcionalidade para adicionar frases inspiradoras, proporcionando uma fonte de motivação para os usuários, ajudando-os a se manterem focados e engajados na conclusão de suas pendências.
+A plataforma também incluirá uma funcionalidade para mostrar frases inspiradoras, proporcionando uma fonte de motivação para os usuários, ajudando-os a se manterem focados e engajados na conclusão de suas pendências.
 
 A estrutura do sistema seguirá o padrão MVC (Model-View-Controller), organizando de forma clara a lógica de negócios, a interface com o usuário e o gerenciamento dos dados. O sistema terá uma interface simples e intuitiva, permitindo que os usuários naveguem facilmente entre as seções de atividades, visualizem o progresso de suas tarefas e recebam inspiração de maneira rápida e eficiente.
 
@@ -27,7 +27,7 @@ A estrutura do sistema seguirá o padrão MVC (Model-View-Controller), organizan
 
 ## <a name="c2"></a>2. Visão Geral da Aplicação Web
 
-### 2.1. Personas (Semana 01 - opcional)
+### 2.1. Personas
 
 A criação de uma persona é um recurso que consiste em modelar o público típico de determinada solução, de modo a facilitar o entendimento do público-alvo de um produto ou serviço. Dessa maneira, para a aplicação WEB Taskline, modelou-se uma persona que tipicamente se envolve com inúmeras atividades, sejam elas acadêmicas, estracurriculares, profissionais ou de lazer e, por esse motivo, não consegue controlar adequadamente as suas tarefas. Além disso, delineou-se uma persona que desejasse meios de se motivar constantemente e de acompanhar sua produtividade. Sendo assim, a figura abaixo representa a persona pensada para o projeto.
 
@@ -37,15 +37,10 @@ A criação de uma persona é um recurso que consiste em modelar o público típ
 <sup>Fonte: Material produzido pelo autor (2025)</sup>
 </div>
 
-### 2.2. User Stories (Semana 01 - opcional)
-
-*Posicione aqui a lista de User Stories levantadas para o projeto. Siga o template de User Stories e utilize a referência USXX para numeração (US01, US02, US03, ...). Indique todas as User Stories mapeadas, mesmo aquelas que não forem implementadas ao longo do projeto. Não se esqueça de explicar o INVEST de 1 User Storie prioritária.*
-
----
 
 ## <a name="c3"></a>3. Projeto da Aplicação Web
 
-### 3.1. Modelagem do banco de dados  (Semana 3)
+### 3.1. Modelagem do banco de dados 
 
 #### 3.1.1. Modelagem Relacional
 
@@ -97,10 +92,7 @@ ALTER TABLE inspiration_quotes
 ADD FOREIGN KEY (user_id) REFERENCES users(id)
 ```
 
-### 3.1.1 BD e Models (Semana 5)
-*Descreva aqui os Models implementados no sistema web*
-
-### 3.2. Arquitetura (Semana 5)
+### 3.2. Arquitetura 
 
 <div align="center">
 <sub>Figura - Persona</sub>
@@ -113,47 +105,40 @@ O projeto utiliza a arquitetura MVC:
 - **Model**: arquivos em `models/`, responsáveis pelo acesso ao banco de dados.
 - **Controller**: arquivos em `controllers/`, recebem as requisições e chamam os models.
 - **Routes**: arquivo `routes/index.js`, define os endpoints e redireciona para os controllers.
-- **View**: ainda não implementada.
+- **View**: arquivos em `views/`, montam a visualização da plataforma com HTMLK e CSS.
 
-### 3.3. Wireframes (Semana 03 - opcional)
-
-*Posicione aqui as imagens do wireframe construído para sua solução e, opcionalmente, o link para acesso (mantenha o link sempre público para visualização).*
-
-### 3.4. Guia de estilos (Semana 05 - opcional)
-
-*Descreva aqui orientações gerais para o leitor sobre como utilizar os componentes do guia de estilos de sua solução.*
-
-
-### 3.5. Protótipo de alta fidelidade (Semana 05 - opcional)
-
-*Posicione aqui algumas imagens demonstrativas de seu protótipo de alta fidelidade e o link para acesso ao protótipo completo (mantenha o link sempre público para visualização).*
-
-### 3.6. WebAPI e endpoints (Semana 05)
+### 3.3. WebAPI e endpoints
 
 #### **/tasks**
+- `GET /tasks`: retorna todas as tarefas do usuário logado.
+- `GET /tasks/completed`: retorna apenas as tarefas concluídas.
 - `POST /tasks`: cria uma nova tarefa.
-- `GET /tasks`: retorna todas as tarefas.
-
-#### **/users**
-- `POST /users`: cria um novo usuário.
-- `GET /users`: retorna todos os usuários.
-
-#### **/quotes**
-- `POST /quotes`: cria uma nova frase inspiradora.
-- `GET /quotes`: retorna todas as frases.
+- `PUT /tasks/:id`: atualiza uma tarefa existente.
+- `DELETE /tasks/:id`: remove uma tarefa existente.
 
 #### **/sections**
+- `GET /sections`: retorna todas as seções do usuário logado.
 - `POST /sections`: cria uma nova seção.
-- `GET /sections`: retorna todas as seções.
+- `PUT /sections/:id`: atualiza uma seção existente.
+- `DELETE /sections/:id`: remove uma seção existente.
 
-> Endpoints `PUT` e `DELETE` ainda não foram implementados.
+#### **/timeline**
+- `GET /timeline`: retorna a visualização da linha do tempo das tarefas.
 
-### 3.7 Interface e Navegação (Semana 07)
+#### **/auth**
+- `GET /login`: renderiza a página de login.
+- `POST /login`: realiza o login do usuário.
+- `GET /logout`: realiza o logout do usuário.
 
-Referente ao frontend da aplicação WEB, ao longo da Semana 7, foi desenvolvido uma página de login estático, um menu que centraliza os redirecionamentos para as demais funçoes, telas para criar tarefas e seções, e um visualização em formato de linha do tempo para as tarefas.
+#### **/menu**
+- `GET /menu`: renderiza o menu principal com nome do usuário logado.
+
+### 3.4 Interface e Navegação 
+
+Referente ao frontend da aplicação WEB, foi desenvolvido uma página de login estático, um menu que centraliza os redirecionamentos para as demais funçoes, telas para criar tarefas e seções, e um visualização em formato de linha do tempo para as tarefas.
 
 #### Login
-A tela de login pede email e senha. Contudo, no período da sétima semana de desenvolvimento, apenas é possível acessar o site com o seguinte login estático: email = admin@email.com e senha = 1234. Futuramente, pretende-se desenvolver a funcionalidade da cadastro e login completa e funcional.
+A tela de login pede email e senha. Contudo, atualmente apenas é possível acessar o site com o seguinte login estático: email = admin@email.com e senha = 1234. Futuramente, pretende-se desenvolver a funcionalidade da cadastro e login completa e funcional.
 
 <p align = "center">Figura: Tela de Login </p>
 
@@ -201,23 +186,16 @@ Na tela de timeline você consegue visualizar suas tarefas em ordem cronológica
 
 ---
 
-## <a name="c4"></a>4. Desenvolvimento da Aplicação Web (Semana 8)
+## <a name="c4"></a>4. Desenvolvimento da Aplicação Web 
 
-### 4.1 Demonstração do Sistema Web (Semana 8)
+### 4.1 Demonstração do Sistema Web 
 
 *VIDEO: Insira o link do vídeo demonstrativo nesta seção*
 *Descreva e ilustre aqui o desenvolvimento do sistema web completo, explicando brevemente o que foi entregue em termos de código e sistema. Utilize prints de tela para ilustrar.*
 
-### 4.2 Conclusões e Trabalhos Futuros (Semana 8)
+### 4.2 Conclusões e Trabalhos Futuros
 
-*Indique pontos fortes e pontos a melhorar de maneira geral.*
-*Relacione também quaisquer outras ideias que você tenha para melhorias futuras.*
-
-
-
-## <a name="c5"></a>5. Referências
-
-_Incluir as principais referências de seu projeto, para que o leitor possa consultar caso ele se interessar em aprofundar._<br>
+A plataforma Taskline se destaca por sua interface simples e intuitiva, que torna prático o gerenciamento e visualização das tarefas do dia a dia. Por outro lado, a plataforma poderia ofercer opções simples de personalização e uma estética mais condizente com a proposta apresentada. Sendo assim, possíveis melhorias para o futuro seriam definir uma identidade visual coesa, como formatar a visualização da tela de Timeline para uma linha do tempo de verdade, assim como permitir que o usuário personalizasse as frases motivacionais que aparecem no footer. Além disso, o site ainda não conta com um sistema de registro, que deve ser criado no futuro.
 
 ---
 ---
