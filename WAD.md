@@ -190,9 +190,7 @@ Na tela de timeline você consegue visualizar suas tarefas em ordem cronológica
 
 ### 4.1 Demonstração do Sistema Web 
 
-*VIDEO: Insira o link do vídeo demonstrativo nesta seção*
-*Descreva e ilustre aqui o desenvolvimento do sistema web completo, explicando brevemente o que foi entregue em termos de código e sistema. Utilize prints de tela para ilustrar.*
-
+#### Link do vídeo da demonstração: https://drive.google.com/drive/folders/1y-mCxOS0Lbm2ijK3k-AY4lXKrFpAyNRW?usp=sharing
 ### 4.2 Conclusões e Trabalhos Futuros
 
 A plataforma Taskline se destaca por sua interface simples e intuitiva, que torna prático o gerenciamento e visualização das tarefas do dia a dia. Por outro lado, a plataforma poderia ofercer opções simples de personalização e uma estética mais condizente com a proposta apresentada. Sendo assim, possíveis melhorias para o futuro seriam definir uma identidade visual coesa, como formatar a visualização da tela de Timeline para uma linha do tempo de verdade, assim como permitir que o usuário personalizasse as frases motivacionais que aparecem no footer. Além disso, o site ainda não conta com um sistema de registro, que deve ser criado no futuro.
