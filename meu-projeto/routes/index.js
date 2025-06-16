@@ -6,7 +6,6 @@ const { ensureAuth } = require("../controllers/AuthController");
 const AuthController = require("../controllers/AuthController");
 const SectionController = require("../controllers/SectionController");
 const TaskController = require("../controllers/TaskController");
-const UserController = require("../controllers/UserController");
 const SectionsModel = require("../models/sections");
 
 // Login

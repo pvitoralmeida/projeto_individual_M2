@@ -3,7 +3,6 @@ const bcrypt = require('bcryptjs');
 const usersModel = require('../models/users');
 
 exports.registerForm = (req, res) => {
-  // Se quiser ter uma rota de registro
   res.render('register', { error: null });
 };
 
